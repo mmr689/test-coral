@@ -31,3 +31,15 @@ output_data = interpreter.get_tensor(output_details[0]['index'])
 
 # Imprime los resultados
 print("Resultados de la inferencia:", output_data)
+
+
+# Dibuja los cuadros delimitadores en la imagen original
+for detection in output_data[0]:
+    score = detection[2]
+    if score > 0.5:  # Filtra detecciones con confianza baja
+        box = detection[0:4] * np.array([image.shape[1], image.shape[0], image.shape[1], image.shape[0]])
+        box = box.astype(int)
+        cv2.rectangle(image, (box[1], box[0]), (box[3], box[2]), (0, 255, 0), 2)
+
+# Guarda la imagen con los cuadros delimitadores
+cv2.imwrite('imagen_con_detecciones.jpg', image)
