@@ -73,7 +73,7 @@ interpreter.invoke()
 
 # Obtener las salidas del modelo
 output_data = interpreter.get_tensor(output_details[0]['index'])
-
+print(output_data)
 #
 bb_dict = {} 
 for i in range(8400):
