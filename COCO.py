@@ -46,8 +46,7 @@ def eliminar_solapamientos(lista_rectangulos):
 
 model_name = 'yolov8n_int8'
 model_path = os.path.join("models", "COCO", f"{model_name}.tflite")
-interpreter = tflite.Interpreter(model_path,
-  experimental_delegates=[tflite.load_delegate('libedgetpu.so.1')])
+interpreter = tflite.Interpreter(model_path, experimental_delegates=[tflite.load_delegate('libedgetpu.so.1')])
 print('A1')
 
 interpreter.allocate_tensors()
