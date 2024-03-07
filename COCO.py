@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """
 Vamos a variar test.py con lo de las bounding boxes
 """
