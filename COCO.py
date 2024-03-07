@@ -42,8 +42,8 @@ def eliminar_solapamientos(lista_rectangulos):
     return rectangulos_eliminados
 
 
-model_name = 'best_yolov3n_int8'
-model_path = os.path.join("models", f"{model_name}.tflite")
+model_name = 'yolov8n_int8'
+model_path = os.path.join("models", "COCO", f"{model_name}.tflite")
 interpreter = tflite.Interpreter(model_path,
   experimental_delegates=[tflite.load_delegate('libedgetpu.so.1')])
 print('A1')
@@ -55,7 +55,7 @@ _, height, width, _ = input_details[0]['shape']
 print('A2')
 
 # Carga una imagen de entrada (ajusta la ruta según tu caso)
-img_path = os.path.join("imgs", "img_20221116_051503.jpg")
+img_path = os.path.join("imgs", "bus.jpg") #img_20221116_051503
 frame = cv2.imread(img_path)
 frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 frame_resized = cv2.resize(frame_rgb, (width, height))
