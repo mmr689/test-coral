@@ -43,7 +43,7 @@ def eliminar_solapamientos(lista_rectangulos):
 
 
 model_name = 'best_yolov3n_int8'
-model_path = os.path.join("models", "yolov8n_saved_model", f"{model_name}.tflite")
+model_path = os.path.join("models", f"{model_name}.tflite")
 interpreter = tflite.Interpreter(model_path,
   experimental_delegates=[tflite.load_delegate('libedgetpu.so.1')])
 print('A1')
